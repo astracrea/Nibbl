@@ -1,0 +1,236 @@
+Design a modern, high-quality waitlist landing page website for a product called Nibbl.
+This is NOT a generic startup page. It should feel like a well-crafted product experience designed by a strong product designer in 2026. Avoid anything that looks templated, overly symmetric, or “AI generated.” The layout should feel intentional, slightly asymmetrical where needed, and visually balanced.
+________________
+
+
+PRODUCT CONTEXT
+Nibbl is a food discovery platform, not a delivery app.
+It helps users discover great food spots around them based on:
+* mood and cravings
+* budget
+* dietary preferences (veg, non-veg, vegan, high protein)
+* hyperlocal exploration
+* hidden gems (street food, tapris, small shops)
+It also includes:
+* bucket lists (track food spots visited)
+* bookmarks / saved lists
+* curated area lists (e.g., best spots in Bandra)
+* shareable lists
+The core idea is:
+“Discover food worth stepping out for.”
+________________
+
+
+DESIGN DIRECTION (VERY IMPORTANT)
+The design should feel:
+* modern, clean, and editorial
+* slightly experimental but still usable
+* inspired by high-end product websites, not SaaS templates
+* immersive and visual (food, maps, exploration)
+* tactile and layered (depth, shadows, motion hints)
+Avoid:
+* flat boring sections
+* generic gradients everywhere
+* stock UI blocks
+* overuse of cards
+Use:
+* large typography
+* strong hierarchy
+* whitespace with intention
+* subtle motion cues (hover, parallax feel)
+* layered compositions (map + food + UI elements overlapping slightly)
+The page should feel like a product you want to explore, not just read.
+________________
+
+
+PAGE STRUCTURE
+1. HERO SECTION
+Goal: instantly communicate the product.
+Content:
+Title:
+“Discover the best food spots around you.”
+Subtext:
+Explore hidden gems, street food, cafes, and local favorites based on your mood, budget, and location.
+Primary CTA:
+“Join the waitlist”
+Secondary CTA (optional):
+“Explore how it works”
+Visual direction:
+* A dynamic map-based background with floating food markers
+* Subtle UI preview of the app (not full mockups, just glimpses)
+* Depth with overlapping layers
+* Slight motion feel (like things are alive, not static)
+________________
+
+
+2. PROBLEM SECTION
+Goal: make users feel the pain.
+Heading:
+“Finding good food is harder than it should be.”
+Content blocks (not bullet heavy, more visual storytelling):
+* cluttered map results
+* unreliable reviews
+* missing hidden gems
+* asking friends repeatedly
+Visual:
+* messy map vs clean discovery contrast
+* storytelling through layout, not paragraphs
+________________
+
+
+3. SHIFT IN THINKING
+Heading:
+“People don’t search restaurants. They search cravings.”
+Show:
+* cheap eats
+* late night food
+* high protein meals
+* chai tapri
+* date spots
+Visual:
+* floating search queries or tags
+* dynamic arrangement (not rigid grid)
+________________
+
+
+4. PRODUCT INTRO
+Heading:
+“Meet Nibbl”
+Short explanation:
+Nibbl helps you discover food based on how you feel, where you are, and what you want to eat.
+Visual:
+* app preview (map + list + filters)
+* should feel real, not placeholder
+________________
+
+
+5. CORE FEATURES (INTERACTIVE FEEL)
+Break into 4–5 sections, each with strong visual + minimal text.
+A. Mood-Based Discovery
+B. Hidden Gems & Street Food
+C. Hyperlocal Exploration
+D. Bucket Lists & Tracking
+E. Save & Share Lists
+Each section:
+* should feel slightly different in layout
+* include micro-interaction hints (hover states, transitions)
+* avoid repetitive card layouts
+________________
+
+
+6. BUCKET LIST FEATURE (IMPORTANT)
+Heading:
+“Turn food into experiences.”
+Show:
+* checklist UI
+* visited vs not visited
+* progress indicator
+Make it feel satisfying and gamified.
+________________
+
+
+7. SAVE & ORGANIZE
+Heading:
+“Save now. Explore later.”
+Show collections like:
+* Late Night Food
+* Cheap Eats
+* Cafes
+* Street Food
+Visual style:
+* layered boards or stacked layouts
+* not a simple grid
+________________
+
+
+8. SHAREABLE LISTS
+Heading:
+“Food is better when shared.”
+Show:
+* list preview
+* share interaction
+* social context
+Make it feel social but not like a social media app.
+________________
+
+
+9. SOCIAL PROOF / EARLY INTEREST
+Even if fake for now, design space for:
+* “Join 500+ early users”
+* testimonials (optional placeholders)
+Keep subtle, not loud.
+________________
+
+
+10. FINAL CTA
+Heading:
+“Never wonder where to eat again.”
+CTA:
+Join the waitlist
+Optional microcopy:
+Be the first to discover your city through food.
+________________
+
+
+11. FOOTER
+Simple but clean:
+* product name
+* short description
+* social links placeholder
+* email
+________________
+
+
+INTERACTIONS & EDGE CASES (VERY IMPORTANT)
+Design all states, not just static screens.
+Include:
+WAITLIST FORM STATES
+* default
+* typing
+* success state
+* error state (invalid email)
+* loading state
+CTA BUTTON STATES
+* hover
+* pressed
+* disabled
+EMPTY STATES
+* no content
+* loading placeholders
+RESPONSIVENESS
+* desktop (primary)
+* tablet
+* mobile
+Mobile should NOT feel like a squished desktop.
+Reflow layouts intentionally.
+SCROLL EXPERIENCE
+* sections should transition smoothly
+* slight parallax or depth shifts
+* avoid abrupt stacking
+MICRO INTERACTIONS
+* hover on cards
+* subtle movement on visuals
+* feedback on clicks
+________________
+
+
+VISUAL LANGUAGE
+* Use real-looking food imagery (not overly polished stock)
+* Combine maps + UI + photography
+* Maintain strong contrast and readability
+* Avoid loud or messy color usage
+* Keep it premium and intentional
+________________
+
+
+FINAL OUTPUT EXPECTATION
+The result should feel like:
+* a real startup landing page ready to launch
+* designed by a human with taste
+* visually rich but not overwhelming
+* clearly communicating the product
+It should NOT feel like:
+* a template
+* a generic SaaS landing page
+* a quick AI-generated layout
+Focus on clarity, depth, and craft.
