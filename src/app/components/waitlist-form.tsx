@@ -32,12 +32,12 @@ export function WaitlistForm({ variant = "hero", onSuccess }: WaitlistFormProps)
     try {
       // Send the email via EmailJS
       await emailjs.send(
-        'YOUR_SERVICE_ID',   // Replace with your Service ID
-        'YOUR_TEMPLATE_ID',  // Replace with your Template ID
+        'nibbl.app',   // Replace with your Service ID
+        'Nibbl Mail',  // Replace with your Template ID
         {
           user_email: email, // This connects to the {{user_email}} variable in your template
         },
-        'YOUR_PUBLIC_KEY'    // Replace with your Public Key
+        'zJgcqJhWacxhQtk-4'    // Replace with your Public Key
       );
 
       setStatus("success");
