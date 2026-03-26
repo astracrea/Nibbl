@@ -1,49 +1,67 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, CheckCircle, Loader2, AlertCircle } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react"; //
+import { ArrowRight, CheckCircle, Loader2, AlertCircle } from "lucide-react"; //
+import emailjs from '@emailjs/browser';
 
-type Status = "idle" | "loading" | "success" | "error";
+type Status = "idle" | "loading" | "success" | "error"; //
 
 interface WaitlistFormProps {
-  variant?: "hero" | "cta";
-  onSuccess?: () => void;
+  variant?: "hero" | "cta"; //
+  onSuccess?: () => void; //
 }
 
-export function WaitlistForm({ variant = "hero", onSuccess }: WaitlistFormProps) {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<Status>("idle");
-  const [touched, setTouched] = useState(false);
+export function WaitlistForm({ variant = "hero", onSuccess }: WaitlistFormProps) { //
+  const [email, setEmail] = useState(""); //
+  const [status, setStatus] = useState<Status>("idle"); //
+  const [touched, setTouched] = useState(false); //
 
-  const isValidEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
-  const hasError = touched && email.length > 0 && !isValidEmail(email);
+  const isValidEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); //
+  const hasError = touched && email.length > 0 && !isValidEmail(email); //
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setTouched(true);
-    if (!isValidEmail(email)) {
-      setStatus("error");
-      return;
+  const handleSubmit = async (e: React.FormEvent) => { //
+    e.preventDefault(); //
+    setTouched(true); //
+    
+    if (!isValidEmail(email)) { //
+      setStatus("error"); //
+      return; //
     }
-    setStatus("loading");
-    await new Promise((r) => setTimeout(r, 1600));
-    setStatus("success");
-    setEmail("");
-    onSuccess?.();
+    
+    setStatus("loading"); //
+
+    try {
+      // Send the email via EmailJS
+      await emailjs.send(
+        'YOUR_SERVICE_ID',   // Replace with your Service ID
+        'YOUR_TEMPLATE_ID',  // Replace with your Template ID
+        {
+          user_email: email, // This connects to the {{user_email}} variable in your template
+        },
+        'YOUR_PUBLIC_KEY'    // Replace with your Public Key
+      );
+
+      setStatus("success");
+      setEmail("");
+      onSuccess?.();
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setStatus("error");
+    }
   };
 
-  if (status === "success") {
+  if (status === "success") { //
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.92 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4 }}
-        className="flex items-center gap-3 rounded-2xl px-6 py-4"
+        initial={{ opacity: 0, scale: 0.92 }} //
+        animate={{ opacity: 1, scale: 1 }} //
+        transition={{ duration: 0.4 }} //
+        className="flex items-center gap-3 rounded-2xl px-6 py-4" //
         style={{
-          background: "rgba(181,204,26,0.1)",
-          border: "1px solid rgba(181,204,26,0.25)",
+          background: "rgba(181,204,26,0.1)", //
+          border: "1px solid rgba(181,204,26,0.25)", //
         }}
       >
-        <CheckCircle size={22} style={{ color: "#B5CC1A" }} />
+        <CheckCircle size={22} style={{ color: "#B5CC1A" }} /> 
         <div>
           <p style={{ fontFamily: "'Syne', sans-serif", color: "#F2EFE8", fontWeight: 600 }}>
             You're on the list!
