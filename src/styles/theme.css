@@ -1,6 +1,45 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Nibbl theme tokens */
+  --n-bg: #141210;
+  --n-bg-alt: #171513;
+  --n-bg-card: #1C1A16;
+  --n-bg-inner: #242220;
+  --n-bg-deep: #0B0A09;
+  --n-bg-card2: #161512;
+  --n-heading: #F2EFE8;
+  --n-body: #8A8780;
+  --n-muted: #7A7873;
+  --n-semi: #C5C2BB;
+  --n-dim: #6A6863;
+  --n-inactive: #55534F;
+  --n-border: rgba(255,255,255,0.06);
+  --n-border-light: rgba(255,255,255,0.04);
+  --n-border-med: rgba(255,255,255,0.07);
+  --n-border-strong: rgba(255,255,255,0.1);
+  --n-glass: rgba(255,255,255,0.025);
+  --n-glass-light: rgba(255,255,255,0.03);
+  --n-glass-med: rgba(255,255,255,0.04);
+  --n-glass-card: rgba(255,255,255,0.05);
+  --n-glass-strong: rgba(255,255,255,0.06);
+  --n-glass-input: rgba(255,255,255,0.07);
+  --n-nav-bg: rgba(11,10,9,0.92);
+  --n-marker-bg: rgba(22,21,18,0.9);
+  --n-overlay-bg: rgba(14,13,11,0.85);
+  --n-overlay-deep: rgba(11,10,9,0.85);
+  --n-grid-line: rgba(255,255,255,0.025);
+  --n-grid-line-strong: rgba(255,255,255,0.04);
+  --n-grid-cell: rgba(255,255,255,0.3);
+  --n-shadow: rgba(0,0,0,0.4);
+  --n-img-brightness: 0.65;
+  --n-img-brightness-low: 0.45;
+  --n-check-fg: #141210;
+  --n-cta-overlay-start: rgba(14,13,11,0.6);
+  --n-cta-overlay-end: rgba(14,13,11,0.95);
+  --n-accent-lime: #B5CC1A;
+
+  /* Original theme tokens */
   --font-size: 16px;
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
@@ -18,7 +57,7 @@
   --accent-foreground: #030213;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+  --border: oklch(0 0 0 / 0.1);
   --input: transparent;
   --input-background: #f3f3f5;
   --switch-background: #cbced4;
@@ -39,6 +78,44 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+}
+
+.nibbl-light {
+  --n-bg: #FAFAF7;
+  --n-bg-alt: #F2F0EB;
+  --n-bg-card: #FFFFFF;
+  --n-bg-inner: #F0EDE6;
+  --n-bg-deep: #FFFFFF;
+  --n-bg-card2: #F8F7F4;
+  --n-heading: #1A1816;
+  --n-body: #6B6860;
+  --n-muted: #8A8780;
+  --n-semi: #3A3830;
+  --n-dim: #9A9890;
+  --n-inactive: #C5C2BB;
+  --n-border: rgba(0,0,0,0.08);
+  --n-border-light: rgba(0,0,0,0.05);
+  --n-border-med: rgba(0,0,0,0.08);
+  --n-border-strong: rgba(0,0,0,0.12);
+  --n-glass: rgba(0,0,0,0.02);
+  --n-glass-light: rgba(0,0,0,0.025);
+  --n-glass-med: rgba(0,0,0,0.03);
+  --n-glass-card: rgba(0,0,0,0.04);
+  --n-glass-strong: rgba(0,0,0,0.05);
+  --n-glass-input: rgba(0,0,0,0.05);
+  --n-nav-bg: rgba(250,250,247,0.92);
+  --n-marker-bg: rgba(255,255,255,0.95);
+  --n-overlay-bg: rgba(255,255,255,0.88);
+  --n-overlay-deep: rgba(255,255,255,0.88);
+  --n-grid-line: rgba(0,0,0,0.04);
+  --n-grid-line-strong: rgba(0,0,0,0.06);
+  --n-grid-cell: rgba(0,0,0,0.15);
+  --n-shadow: rgba(0,0,0,0.08);
+  --n-img-brightness: 0.85;
+  --n-img-brightness-low: 0.65;
+  --n-check-fg: #FFFFFF;
+  --n-cta-overlay-start: rgba(242,240,235,0.6);
+  --n-cta-overlay-end: rgba(242,240,235,0.95);
 }
 
 .dark {

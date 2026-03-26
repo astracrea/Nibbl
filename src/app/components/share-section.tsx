@@ -21,12 +21,12 @@ export function ShareSection() {
 
   return (
     <section
-      style={{ background: "#0E0D0B", borderTop: "1px solid rgba(255,255,255,0.04)" }}
+      id="share"
+      style={{ background: "var(--n-bg-alt)", borderTop: "1px solid var(--n-border-light)", transition: "background 0.4s ease" }}
       className="py-24 md:py-36 px-6"
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left: List preview UI */}
           <motion.div
             ref={ref}
             initial={{ opacity: 0, x: -28 }}
@@ -34,48 +34,39 @@ export function ShareSection() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            {/* Shared list card */}
             <div
               className="rounded-3xl overflow-hidden"
               style={{
-                background: "#161512",
-                border: "1px solid rgba(255,255,255,0.07)",
-                boxShadow: "0 24px 60px rgba(0,0,0,0.4)",
+                background: "var(--n-bg-card2)",
+                border: "1px solid var(--n-border-med)",
+                boxShadow: `0 24px 60px var(--n-shadow)`,
               }}
             >
-              {/* Header */}
-              <div
-                className="px-6 py-5"
-                style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}
-              >
+              <div className="px-6 py-5" style={{ borderBottom: "1px solid var(--n-border-light)" }}>
                 <div className="flex items-start justify-between">
                   <div>
-                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", color: "#55534F", marginBottom: 4 }}>
+                    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", color: "var(--n-muted)", marginBottom: 4 }}>
                       Shared by Arjun S.
                     </p>
-                    <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, color: "#F2EFE8", fontSize: "1.15rem" }}>
+                    <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, color: "var(--n-heading)", fontSize: "1.15rem" }}>
                       South Bombay Must-Tries 🏛️
                     </h3>
                     <div className="flex items-center gap-2 mt-1">
-                      <MapPin size={10} style={{ color: "#55534F" }} />
-                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", color: "#55534F" }}>
+                      <MapPin size={10} style={{ color: "var(--n-muted)" }} />
+                      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", color: "var(--n-muted)" }}>
                         South Mumbai · 4 spots
                       </span>
                     </div>
                   </div>
-                  {/* Avatar */}
                   <div
                     className="w-9 h-9 rounded-full flex items-center justify-center"
                     style={{ background: "rgba(255,92,40,0.2)", border: "1.5px solid rgba(255,92,40,0.4)" }}
                   >
-                    <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: "#FF5C28", fontSize: "0.8rem" }}>
-                      A
-                    </span>
+                    <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: "#FF5C28", fontSize: "0.8rem" }}>A</span>
                   </div>
                 </div>
               </div>
 
-              {/* List items */}
               <div className="px-6 py-3">
                 {SHARED_LIST.map((item, i) => (
                   <motion.div
@@ -84,41 +75,37 @@ export function ShareSection() {
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
                     className="flex items-center gap-3 py-3"
-                    style={{ borderBottom: i < SHARED_LIST.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none" }}
+                    style={{ borderBottom: i < SHARED_LIST.length - 1 ? "1px solid var(--n-border-light)" : "none" }}
                   >
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: "rgba(255,255,255,0.04)", fontSize: "1.1rem" }}
+                      style={{ background: "var(--n-glass-med)", fontSize: "1.1rem" }}
                     >
                       {item.emoji}
                     </div>
                     <div className="flex-1">
-                      <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, color: "#F2EFE8", fontSize: "0.85rem" }}>
+                      <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, color: "var(--n-heading)", fontSize: "0.85rem" }}>
                         {item.name}
                       </p>
-                      <p style={{ fontFamily: "'Inter', sans-serif", color: "#55534F", fontSize: "0.67rem" }}>
+                      <p style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-muted)", fontSize: "0.67rem" }}>
                         {item.type}
                       </p>
                     </div>
                     <div className="flex items-center gap-1">
                       <Star size={10} fill="#FFA726" stroke="#FFA726" />
-                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", color: "#8A8780" }}>{item.rating}</span>
+                      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", color: "var(--n-body)" }}>{item.rating}</span>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Share bar */}
-              <div
-                className="px-6 py-4 flex items-center gap-3"
-                style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
-              >
+              <div className="px-6 py-4 flex items-center gap-3" style={{ borderTop: "1px solid var(--n-border-light)" }}>
                 <div
                   className="flex-1 rounded-xl px-4 py-2.5 flex items-center gap-2"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}
+                  style={{ background: "var(--n-glass-med)", border: "1px solid var(--n-border)" }}
                 >
-                  <Link size={12} style={{ color: "#55534F" }} />
-                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", color: "#55534F" }}>
+                  <Link size={12} style={{ color: "var(--n-muted)" }} />
+                  <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", color: "var(--n-muted)" }}>
                     nibbl.app/list/south-bombay-classics
                   </span>
                 </div>
@@ -130,8 +117,7 @@ export function ShareSection() {
                   style={{
                     background: copied ? "rgba(181,204,26,0.15)" : "rgba(255,92,40,0.15)",
                     border: copied ? "1px solid rgba(181,204,26,0.3)" : "1px solid rgba(255,92,40,0.3)",
-                    cursor: "pointer",
-                    transition: "all 0.2s",
+                    cursor: "pointer", transition: "all 0.2s",
                   }}
                 >
                   <AnimatePresence mode="wait">
@@ -145,37 +131,30 @@ export function ShareSection() {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                  <span style={{
-                    fontFamily: "'Syne', sans-serif",
-                    fontSize: "0.72rem",
-                    fontWeight: 600,
-                    color: copied ? "#B5CC1A" : "#FF5C28",
-                  }}>
+                  <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "0.72rem", fontWeight: 600, color: copied ? "#B5CC1A" : "#FF5C28" }}>
                     {copied ? "Copied!" : "Share"}
                   </span>
                 </motion.button>
               </div>
             </div>
 
-            {/* Floating "viewed by" element */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="absolute -bottom-5 -right-4 rounded-2xl px-4 py-3 flex items-center gap-3"
               style={{
-                background: "rgba(22,21,18,0.95)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "var(--n-marker-bg)",
+                border: "1px solid var(--n-border)",
                 backdropFilter: "blur(12px)",
               }}
             >
-              {/* Avatar stack */}
               <div className="flex -space-x-2">
                 {["#FF5C28", "#FFA726", "#B5CC1A", "#8A8780"].map((c, i) => (
                   <div
                     key={i}
                     className="w-7 h-7 rounded-full flex items-center justify-center border-2"
-                    style={{ background: `${c}20`, borderColor: "#161512", zIndex: 4 - i }}
+                    style={{ background: `${c}20`, borderColor: "var(--n-bg-card)", zIndex: 4 - i }}
                   >
                     <span style={{ fontSize: "0.55rem", color: c, fontFamily: "'Syne', sans-serif", fontWeight: 700 }}>
                       {["R", "M", "P", "S"][i]}
@@ -184,30 +163,24 @@ export function ShareSection() {
                 ))}
               </div>
               <div>
-                <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: "#F2EFE8", fontSize: "0.78rem" }}>
+                <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: "var(--n-heading)", fontSize: "0.78rem" }}>
                   24 people saved this
                 </p>
-                <p style={{ fontFamily: "'Inter', sans-serif", color: "#55534F", fontSize: "0.62rem" }}>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-muted)", fontSize: "0.62rem" }}>
                   in the last 7 days
                 </p>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Right: Text */}
           <div>
             <motion.span
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: "0.78rem",
-                fontWeight: 500,
-                color: "#FF5C28",
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                display: "inline-block",
-                marginBottom: "1rem",
+                fontFamily: "'DM Sans', sans-serif", fontSize: "0.78rem", fontWeight: 500,
+                color: "#FF5C28", letterSpacing: "0.08em", textTransform: "uppercase",
+                display: "inline-block", marginBottom: "1rem",
               }}
             >
               Feature 06 · Share Lists
@@ -218,12 +191,9 @@ export function ShareSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.65, delay: 0.1 }}
               style={{
-                fontFamily: "'Syne', sans-serif",
-                fontWeight: 800,
+                fontFamily: "'Syne', sans-serif", fontWeight: 800,
                 fontSize: "clamp(2rem, 4vw, 3.2rem)",
-                color: "#F2EFE8",
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
+                color: "var(--n-heading)", lineHeight: 1.1, letterSpacing: "-0.02em",
               }}
             >
               Food is better
@@ -236,13 +206,7 @@ export function ShareSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, delay: 0.22 }}
               className="mt-5"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                color: "#8A8780",
-                fontSize: "1rem",
-                lineHeight: 1.7,
-                maxWidth: 400,
-              }}
+              style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-body)", fontSize: "1rem", lineHeight: 1.7, maxWidth: 400 }}
             >
               Share your curated lists with friends. Drop a link in WhatsApp,
               Instagram, anywhere. Your recommendations become theirs — no app
@@ -264,12 +228,12 @@ export function ShareSection() {
                 <div
                   key={s.label}
                   className="rounded-2xl p-4"
-                  style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.05)" }}
+                  style={{ background: "var(--n-glass)", border: "1px solid var(--n-border-light)" }}
                 >
                   <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: "#FF5C28", fontSize: "1rem" }}>
                     {s.num}
                   </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", color: "#55534F", fontSize: "0.78rem", marginTop: 2 }}>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-muted)", fontSize: "0.78rem", marginTop: 2 }}>
                     {s.label}
                   </p>
                 </div>

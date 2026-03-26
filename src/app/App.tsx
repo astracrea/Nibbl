@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { ThemeProvider } from "./components/theme-context";
 import { Navbar } from "./components/navbar";
 import { HeroSection } from "./components/hero-section";
 import { ProblemSection } from "./components/problem-section";
@@ -12,10 +13,9 @@ import { SocialProofSection } from "./components/social-proof";
 import { FinalCTA } from "./components/final-cta";
 import { Footer } from "./components/footer";
 
-export default function App() {
+function AppContent() {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth";
-    document.body.style.background = "#0B0A09";
     document.body.style.overflowX = "hidden";
   }, []);
 
@@ -23,9 +23,10 @@ export default function App() {
     <div
       style={{
         fontFamily: "'DM Sans', sans-serif",
-        background: "#0B0A09",
-        color: "#F2EFE8",
+        background: "var(--n-bg)",
+        color: "var(--n-heading)",
         overflowX: "hidden",
+        transition: "background 0.4s ease, color 0.4s ease",
       }}
     >
       <Navbar />
@@ -41,5 +42,13 @@ export default function App() {
       <FinalCTA />
       <Footer />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }

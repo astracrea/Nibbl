@@ -28,25 +28,19 @@ export function BucketListSection() {
   return (
     <section
       id="bucket-list"
-      style={{ background: "#0E0D0B", borderTop: "1px solid rgba(255,255,255,0.04)" }}
+      style={{ background: "var(--n-bg-alt)", borderTop: "1px solid var(--n-border-light)", transition: "background 0.4s ease" }}
       className="py-24 md:py-36 px-6"
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left: Text */}
           <div ref={ref} className="lg:sticky lg:top-32">
             <motion.span
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: "0.78rem",
-                fontWeight: 500,
-                color: "#B5CC1A",
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                display: "inline-block",
-                marginBottom: "1rem",
+                fontFamily: "'DM Sans', sans-serif", fontSize: "0.78rem", fontWeight: 500,
+                color: "#B5CC1A", letterSpacing: "0.08em", textTransform: "uppercase",
+                display: "inline-block", marginBottom: "1rem",
               }}
             >
               Feature 04 · Bucket List
@@ -57,12 +51,9 @@ export function BucketListSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.65, delay: 0.1 }}
               style={{
-                fontFamily: "'Syne', sans-serif",
-                fontWeight: 800,
+                fontFamily: "'Syne', sans-serif", fontWeight: 800,
                 fontSize: "clamp(2rem, 4vw, 3.2rem)",
-                color: "#F2EFE8",
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
+                color: "var(--n-heading)", lineHeight: 1.1, letterSpacing: "-0.02em",
               }}
             >
               Turn food into
@@ -75,19 +66,12 @@ export function BucketListSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, delay: 0.22 }}
               className="mt-5"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                color: "#8A8780",
-                fontSize: "1rem",
-                lineHeight: 1.7,
-                maxWidth: 380,
-              }}
+              style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-body)", fontSize: "1rem", lineHeight: 1.7, maxWidth: 380 }}
             >
               Build a living map of every food spot you want to visit. Check them
               off as you go. Turn eating out into a quest worth completing.
             </motion.p>
 
-            {/* Progress stat */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -101,10 +85,10 @@ export function BucketListSection() {
                 <Trophy size={24} style={{ color: "#B5CC1A" }} />
               </div>
               <div>
-                <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, color: "#F2EFE8", fontSize: "1.8rem", lineHeight: 1 }}>
+                <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, color: "var(--n-heading)", fontSize: "1.8rem", lineHeight: 1 }}>
                   {doneCount}/{items.length}
                 </p>
-                <p style={{ fontFamily: "'Inter', sans-serif", color: "#55534F", fontSize: "0.82rem", marginTop: 2 }}>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-muted)", fontSize: "0.82rem", marginTop: 2 }}>
                   spots visited this list
                 </p>
               </div>
@@ -115,37 +99,27 @@ export function BucketListSection() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="mt-6"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                color: "#55534F",
-                fontSize: "0.82rem",
-                fontStyle: "italic",
-              }}
+              style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-muted)", fontSize: "0.82rem", fontStyle: "italic" }}
             >
-              Click the items to check them off →
+              Click the items to check them off
             </motion.p>
           </div>
 
-          {/* Right: Checklist */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            {/* Progress bar */}
             <div className="mb-6">
               <div className="flex items-center justify-between mb-2">
-                <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, color: "#F2EFE8", fontSize: "0.85rem" }}>
+                <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, color: "var(--n-heading)", fontSize: "0.85rem" }}>
                   Mumbai Classics Bucket List
                 </span>
-                <span style={{ fontFamily: "'Inter', sans-serif", color: "#B5CC1A", fontSize: "0.78rem", fontWeight: 600 }}>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", color: "#B5CC1A", fontSize: "0.78rem", fontWeight: 600 }}>
                   {Math.round(progress)}%
                 </span>
               </div>
-              <div
-                className="w-full rounded-full overflow-hidden"
-                style={{ height: 6, background: "rgba(255,255,255,0.06)" }}
-              >
+              <div className="w-full rounded-full overflow-hidden" style={{ height: 6, background: "var(--n-glass-strong)" }}>
                 <motion.div
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
@@ -155,11 +129,7 @@ export function BucketListSection() {
               </div>
             </div>
 
-            {/* List items */}
-            <div
-              className="rounded-3xl overflow-hidden"
-              style={{ border: "1px solid rgba(255,255,255,0.07)", background: "#161512" }}
-            >
+            <div className="rounded-3xl overflow-hidden" style={{ border: "1px solid var(--n-border-med)", background: "var(--n-bg-card)" }}>
               {items.map((item, i) => (
                 <motion.div
                   key={item.id}
@@ -169,39 +139,33 @@ export function BucketListSection() {
                   onClick={() => toggleItem(item.id)}
                   className="flex items-center gap-4 px-5 py-4 cursor-pointer group"
                   style={{
-                    borderBottom: i < items.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none",
+                    borderBottom: i < items.length - 1 ? "1px solid var(--n-border-light)" : "none",
                     transition: "background 0.15s",
                   }}
-                  whileHover={{ backgroundColor: "rgba(255,255,255,0.02)" } as any}
+                  whileHover={{ backgroundColor: "var(--n-glass)" } as any}
                 >
-                  {/* Checkbox */}
                   <div
-                    className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-200"
+                    className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-200"
                     style={{
                       background: item.done ? "#B5CC1A" : "transparent",
-                      border: item.done ? "none" : "1.5px solid rgba(255,255,255,0.15)",
+                      border: item.done ? "none" : "1.5px solid var(--n-border-strong)",
                       boxShadow: item.done ? "0 2px 8px rgba(181,204,26,0.4)" : "none",
+                      transition: "background 0.2s, border 0.2s, box-shadow 0.2s",
                     }}
                   >
                     <AnimatePresence>
                       {item.done && (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          exit={{ scale: 0 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <Check size={13} strokeWidth={3} color="#0B0A09" />
+                        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ duration: 0.2 }}>
+                          <Check size={13} strokeWidth={3} color="var(--n-check-fg)" />
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
 
-                  {/* Emoji */}
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{
-                      background: "rgba(255,255,255,0.04)",
+                      background: "var(--n-glass-med)",
                       fontSize: "1.2rem",
                       opacity: item.done ? 0.5 : 1,
                       transition: "opacity 0.2s",
@@ -210,13 +174,11 @@ export function BucketListSection() {
                     {item.emoji}
                   </div>
 
-                  {/* Text */}
                   <div className="flex-1 min-w-0">
                     <p
                       style={{
-                        fontFamily: "'Syne', sans-serif",
-                        fontWeight: 600,
-                        color: item.done ? "#55534F" : "#F2EFE8",
+                        fontFamily: "'Syne', sans-serif", fontWeight: 600,
+                        color: item.done ? "var(--n-muted)" : "var(--n-heading)",
                         fontSize: "0.92rem",
                         textDecoration: item.done ? "line-through" : "none",
                         transition: "all 0.2s",
@@ -225,28 +187,24 @@ export function BucketListSection() {
                       {item.name}
                     </p>
                     <div className="flex items-center gap-1 mt-0.5">
-                      <MapPin size={10} style={{ color: "#55534F" }} />
-                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", color: "#55534F" }}>
+                      <MapPin size={10} style={{ color: "var(--n-muted)" }} />
+                      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", color: "var(--n-muted)" }}>
                         {item.type}
                       </span>
                     </div>
                   </div>
 
-                  {/* Done badge */}
                   <AnimatePresence>
                     {item.done && (
                       <motion.div
                         initial={{ opacity: 0, scale: 0.7 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.7 }}
-                        className="rounded-full px-2.5 py-1"
-                        style={{
-                          background: "rgba(181,204,26,0.12)",
-                          border: "1px solid rgba(181,204,26,0.2)",
-                        }}
+                        className="rounded-full px-3.5 py-1.5 flex items-center justify-center"
+                        style={{ background: "rgba(181,204,26,0.12)", border: "1px solid rgba(181,204,26,0.2)" }}
                       >
-                        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.62rem", color: "#B5CC1A", fontWeight: 600 }}>
-                          Visited ✓
+                        <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.62rem", color: "#B5CC1A", fontWeight: 600, lineHeight: 1, display: "block", textAlign: "center" }}>
+                          Visited
                         </span>
                       </motion.div>
                     )}
@@ -255,7 +213,6 @@ export function BucketListSection() {
               ))}
             </div>
 
-            {/* Achievement */}
             <AnimatePresence>
               {doneCount === items.length && (
                 <motion.div
@@ -263,17 +220,14 @@ export function BucketListSection() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0 }}
                   className="mt-4 rounded-2xl px-5 py-4 flex items-center gap-3"
-                  style={{
-                    background: "rgba(181,204,26,0.1)",
-                    border: "1px solid rgba(181,204,26,0.25)",
-                  }}
+                  style={{ background: "rgba(181,204,26,0.1)", border: "1px solid rgba(181,204,26,0.25)" }}
                 >
                   <Trophy size={20} style={{ color: "#B5CC1A" }} />
                   <div>
-                    <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: "#F2EFE8", fontSize: "0.9rem" }}>
+                    <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: "var(--n-heading)", fontSize: "0.9rem" }}>
                       List complete! 🎉
                     </p>
-                    <p style={{ fontFamily: "'Inter', sans-serif", color: "#8A8780", fontSize: "0.75rem" }}>
+                    <p style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-body)", fontSize: "0.75rem" }}>
                       You've conquered Mumbai Classics. Time to build a new list.
                     </p>
                   </div>

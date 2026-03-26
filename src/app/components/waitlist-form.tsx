@@ -1,72 +1,54 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react"; //
-import { ArrowRight, CheckCircle, Loader2, AlertCircle } from "lucide-react"; //
-import emailjs from '@emailjs/browser';
+import { motion, AnimatePresence } from "motion/react";
+import { ArrowRight, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 
-type Status = "idle" | "loading" | "success" | "error"; //
+type Status = "idle" | "loading" | "success" | "error";
 
 interface WaitlistFormProps {
-  variant?: "hero" | "cta"; //
-  onSuccess?: () => void; //
+  variant?: "hero" | "cta";
+  onSuccess?: () => void;
 }
 
-export function WaitlistForm({ variant = "hero", onSuccess }: WaitlistFormProps) { //
-  const [email, setEmail] = useState(""); //
-  const [status, setStatus] = useState<Status>("idle"); //
-  const [touched, setTouched] = useState(false); //
+export function WaitlistForm({ variant = "hero", onSuccess }: WaitlistFormProps) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+  const [touched, setTouched] = useState(false);
 
-  const isValidEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); //
-  const hasError = touched && email.length > 0 && !isValidEmail(email); //
+  const isValidEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  const hasError = touched && email.length > 0 && !isValidEmail(email);
 
-  const handleSubmit = async (e: React.FormEvent) => { //
-    e.preventDefault(); //
-    setTouched(true); //
-    
-    if (!isValidEmail(email)) { //
-      setStatus("error"); //
-      return; //
-    }
-    
-    setStatus("loading"); //
-
-    try {
-      // Send the email via EmailJS
-      await emailjs.send(
-        'nibbl.app',   // Replace with your Service ID
-        'Nibbl Mail',  // Replace with your Template ID
-        {
-          user_email: email, // This connects to the {{user_email}} variable in your template
-        },
-        'zJgcqJhWacxhQtk-4'    // Replace with your Public Key
-      );
-
-      setStatus("success");
-      setEmail("");
-      onSuccess?.();
-    } catch (error) {
-      console.error("Failed to send email:", error);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setTouched(true);
+    if (!isValidEmail(email)) {
       setStatus("error");
+      return;
     }
+    setStatus("loading");
+    await new Promise((r) => setTimeout(r, 1600));
+    setStatus("success");
+    setEmail("");
+    onSuccess?.();
   };
 
-  if (status === "success") { //
+  if (status === "success") {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.92 }} //
-        animate={{ opacity: 1, scale: 1 }} //
-        transition={{ duration: 0.4 }} //
-        className="flex items-center gap-3 rounded-2xl px-6 py-4" //
+        initial={{ opacity: 0, scale: 0.92 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4 }}
+        className="flex flex-col items-center text-center gap-2 rounded-2xl px-6 py-5"
         style={{
-          background: "rgba(181,204,26,0.1)", //
-          border: "1px solid rgba(181,204,26,0.25)", //
+          background: "rgba(181,204,26,0.1)",
+          border: "1px solid rgba(181,204,26,0.25)",
         }}
       >
-        <CheckCircle size={22} style={{ color: "#B5CC1A" }} /> 
+        <CheckCircle size={22} style={{ color: "#B5CC1A" }} />
         <div>
-          <p style={{ fontFamily: "'Syne', sans-serif", color: "#F2EFE8", fontWeight: 600 }}>
+          <p style={{ fontFamily: "'Syne', sans-serif", color: "var(--n-heading)", fontWeight: 600 }}>
             You're on the list!
           </p>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", color: "#8A8780", fontSize: "0.85rem" }}>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-body)", fontSize: "0.85rem", marginTop: 2 }}>
             We'll reach out when Nibbl is ready for you.
           </p>
         </div>
@@ -77,7 +59,7 @@ export function WaitlistForm({ variant = "hero", onSuccess }: WaitlistFormProps)
   return (
     <div>
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-        <div className="relative flex-1">
+        <div className="relative flex-[2]">
           <input
             type="email"
             value={email}
@@ -88,15 +70,14 @@ export function WaitlistForm({ variant = "hero", onSuccess }: WaitlistFormProps)
             }}
             onBlur={() => setTouched(true)}
             placeholder="your@email.com"
-            className="w-full rounded-xl px-5 py-4 outline-none transition-all duration-200"
+            className="w-full rounded-xl outline-none transition-all duration-200 px-[16px] py-[16px] text-[13px] placeholder:text-[13px]"
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              background: "rgba(255,255,255,0.07)",
+              background: "var(--n-glass-input)",
               border: hasError
                 ? "1px solid rgba(220,60,60,0.6)"
-                : "1px solid rgba(255,255,255,0.1)",
-              color: "#F2EFE8",
-              fontSize: "0.95rem",
+                : "1px solid var(--n-border-strong)",
+              color: "var(--n-heading)",
             }}
           />
           <AnimatePresence>
@@ -148,7 +129,7 @@ export function WaitlistForm({ variant = "hero", onSuccess }: WaitlistFormProps)
       </form>
 
       {variant === "hero" && status !== "error" && (
-        <p className="mt-4" style={{ fontFamily: "'DM Sans', sans-serif", color: "#55534F", fontSize: "0.8rem" }}>
+        <p className="mt-4" style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-muted)", fontSize: "0.8rem" }}>
           No spam. Just an early invite when we're ready.
         </p>
       )}

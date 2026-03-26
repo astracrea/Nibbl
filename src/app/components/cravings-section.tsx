@@ -2,18 +2,18 @@ import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
 const CRAVINGS = [
-  { label: "cheap eats 🤑", size: "xl", color: "#FF5C28", bg: "rgba(255,92,40,0.12)", border: "rgba(255,92,40,0.25)", rotate: -3, x: "0%", y: "0%" },
-  { label: "late night food 🌙", size: "md", color: "#FFA726", bg: "rgba(255,167,38,0.1)", border: "rgba(255,167,38,0.2)", rotate: 4, x: "5%", y: "0%" },
-  { label: "high protein 💪", size: "sm", color: "#B5CC1A", bg: "rgba(181,204,26,0.1)", border: "rgba(181,204,26,0.2)", rotate: -6, x: "0%", y: "0%" },
-  { label: "chai tapri ☕", size: "lg", color: "#FFA726", bg: "rgba(255,167,38,0.1)", border: "rgba(255,167,38,0.2)", rotate: 3, x: "0%", y: "0%" },
-  { label: "date spots 🕯️", size: "md", color: "#FF5C28", bg: "rgba(255,92,40,0.1)", border: "rgba(255,92,40,0.2)", rotate: -4, x: "0%", y: "0%" },
-  { label: "hidden gems 💎", size: "xl", color: "#B5CC1A", bg: "rgba(181,204,26,0.1)", border: "rgba(181,204,26,0.2)", rotate: 6, x: "0%", y: "0%" },
-  { label: "after office 🍻", size: "sm", color: "#FF5C28", bg: "rgba(255,92,40,0.1)", border: "rgba(255,92,40,0.2)", rotate: -2, x: "0%", y: "0%" },
-  { label: "vegan friendly 🥦", size: "md", color: "#B5CC1A", bg: "rgba(181,204,26,0.1)", border: "rgba(181,204,26,0.2)", rotate: 5, x: "0%", y: "0%" },
-  { label: "under ₹200 💸", size: "lg", color: "#FFA726", bg: "rgba(255,167,38,0.1)", border: "rgba(255,167,38,0.2)", rotate: -5, x: "0%", y: "0%" },
-  { label: "street food 🛒", size: "xl", color: "#FF5C28", bg: "rgba(255,92,40,0.12)", border: "rgba(255,92,40,0.25)", rotate: 2, x: "0%", y: "0%" },
-  { label: "sunday brunch 🥞", size: "sm", color: "#FFA726", bg: "rgba(255,167,38,0.1)", border: "rgba(255,167,38,0.2)", rotate: -7, x: "0%", y: "0%" },
-  { label: "quick bites ⚡", size: "md", color: "#B5CC1A", bg: "rgba(181,204,26,0.1)", border: "rgba(181,204,26,0.2)", rotate: 4, x: "0%", y: "0%" },
+  { label: "cheap eats 🤑", size: "xl", color: "#FF5C28", bg: "rgba(255,92,40,0.12)", border: "rgba(255,92,40,0.25)", rotate: -3 },
+  { label: "late night food 🌙", size: "md", color: "#FFA726", bg: "rgba(255,167,38,0.1)", border: "rgba(255,167,38,0.2)", rotate: 4 },
+  { label: "high protein 💪", size: "sm", color: "#B5CC1A", bg: "rgba(181,204,26,0.1)", border: "rgba(181,204,26,0.2)", rotate: -6 },
+  { label: "chai tapri ☕", size: "lg", color: "#FFA726", bg: "rgba(255,167,38,0.1)", border: "rgba(255,167,38,0.2)", rotate: 3 },
+  { label: "date spots 🕯️", size: "md", color: "#FF5C28", bg: "rgba(255,92,40,0.1)", border: "rgba(255,92,40,0.2)", rotate: -4 },
+  { label: "hidden gems 💎", size: "xl", color: "#B5CC1A", bg: "rgba(181,204,26,0.1)", border: "rgba(181,204,26,0.2)", rotate: 6 },
+  { label: "after office 🍻", size: "sm", color: "#FF5C28", bg: "rgba(255,92,40,0.1)", border: "rgba(255,92,40,0.2)", rotate: -2 },
+  { label: "vegan friendly 🥦", size: "md", color: "#B5CC1A", bg: "rgba(181,204,26,0.1)", border: "rgba(181,204,26,0.2)", rotate: 5 },
+  { label: "under ₹200 💸", size: "lg", color: "#FFA726", bg: "rgba(255,167,38,0.1)", border: "rgba(255,167,38,0.2)", rotate: -5 },
+  { label: "street food 🛒", size: "xl", color: "#FF5C28", bg: "rgba(255,92,40,0.12)", border: "rgba(255,92,40,0.25)", rotate: 2 },
+  { label: "sunday brunch 🥞", size: "sm", color: "#FFA726", bg: "rgba(255,167,38,0.1)", border: "rgba(255,167,38,0.2)", rotate: -7 },
+  { label: "quick bites ⚡", size: "md", color: "#B5CC1A", bg: "rgba(181,204,26,0.1)", border: "rgba(181,204,26,0.2)", rotate: 4 },
 ];
 
 const SIZE_MAP = {
@@ -63,11 +63,10 @@ export function CravingsSection() {
   return (
     <section
       id="cravings"
-      style={{ background: "#0B0A09", borderTop: "1px solid rgba(255,255,255,0.04)" }}
+      style={{ background: "var(--n-bg)", borderTop: "1px solid var(--n-border-light)", transition: "background 0.4s ease" }}
       className="py-24 md:py-36 px-6 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto">
-        {/* Heading */}
         <div ref={ref} className="text-center mb-16">
           <motion.span
             initial={{ opacity: 0 }}
@@ -94,7 +93,7 @@ export function CravingsSection() {
               fontFamily: "'Syne', sans-serif",
               fontWeight: 800,
               fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-              color: "#F2EFE8",
+              color: "var(--n-heading)",
               lineHeight: 1.1,
               letterSpacing: "-0.02em",
             }}
@@ -111,23 +110,21 @@ export function CravingsSection() {
             className="mt-5 max-w-lg mx-auto"
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              color: "#55534F",
+              color: "var(--n-muted)",
               fontSize: "1rem",
               lineHeight: 1.7,
             }}
           >
-            Nibbl understands how you actually think about food — not by category, but by feeling.
+            Nibbl understands how you actually think about food
           </motion.p>
         </div>
 
-        {/* Tags scattered layout */}
         <div className="flex flex-wrap justify-center gap-3 md:gap-4 items-center" style={{ maxWidth: 840, margin: "0 auto" }}>
           {CRAVINGS.map((craving, i) => (
             <CravingTag key={craving.label} {...craving} delay={0.05 * i} />
           ))}
         </div>
 
-        {/* Subtext */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -136,8 +133,7 @@ export function CravingsSection() {
           className="text-center mt-12"
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            color: "#55534F",
-            fontSize: "0.88rem",
+            color: "var(--n-muted)",
           }}
         >
           Search how you feel. Nibbl figures out the rest.

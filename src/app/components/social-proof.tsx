@@ -3,24 +3,9 @@ import { motion, useInView } from "motion/react";
 import { Star } from "lucide-react";
 
 const TESTIMONIALS = [
-  {
-    name: "Priya M.",
-    handle: "@priya_eats",
-    quote: "Finally an app that understands I don't want \"top rated\" — I want what's actually good near me right now.",
-    color: "#FF5C28",
-  },
-  {
-    name: "Rahul K.",
-    handle: "@rahulbombayfood",
-    quote: "The bucket list feature is genius. I've been checking off street food spots I've been meaning to try for years.",
-    color: "#FFA726",
-  },
-  {
-    name: "Sneha T.",
-    handle: "@snehaeats",
-    quote: "Shared my 'Cheap Eats Bandra' list with 3 friends and they all added 5 more spots to it. This is how food discovery should work.",
-    color: "#B5CC1A",
-  },
+  { name: "Priya M.", handle: "@priya_eats", quote: "Finally an app that understands I don't want \"top rated\" — I want what's actually good near me right now.", color: "#FF5C28" },
+  { name: "Rahul K.", handle: "@rahulbombayfood", quote: "The bucket list feature is genius. I've been checking off street food spots I've been meaning to try for years.", color: "#FFA726" },
+  { name: "Sneha T.", handle: "@snehaeats", quote: "Shared my 'Cheap Eats Bandra' list with 3 friends and they all added 5 more spots to it. This is how food discovery should work.", color: "#B5CC1A" },
 ];
 
 const AVATARS = [
@@ -39,11 +24,10 @@ export function SocialProofSection() {
 
   return (
     <section
-      style={{ background: "#0B0A09", borderTop: "1px solid rgba(255,255,255,0.04)" }}
+      style={{ background: "var(--n-bg)", borderTop: "1px solid var(--n-border-light)", transition: "background 0.4s ease" }}
       className="py-24 md:py-32 px-6"
     >
       <div className="max-w-6xl mx-auto">
-        {/* Heading */}
         <div ref={ref} className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -51,7 +35,6 @@ export function SocialProofSection() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center gap-4"
           >
-            {/* Avatar stack */}
             <div className="flex -space-x-3">
               {AVATARS.map((av, i) => (
                 <motion.div
@@ -60,11 +43,7 @@ export function SocialProofSection() {
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.3, delay: 0.05 * i }}
                   className="w-9 h-9 rounded-full flex items-center justify-center border-2"
-                  style={{
-                    background: `${av.color}20`,
-                    borderColor: "#0B0A09",
-                    zIndex: AVATARS.length - i,
-                  }}
+                  style={{ background: `${av.color}20`, borderColor: "var(--n-bg)", zIndex: AVATARS.length - i }}
                 >
                   <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: av.color, fontSize: "0.7rem" }}>
                     {av.initial}
@@ -76,25 +55,23 @@ export function SocialProofSection() {
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.3, delay: 0.4 }}
                 className="w-9 h-9 rounded-full flex items-center justify-center border-2"
-                style={{ background: "rgba(255,255,255,0.05)", borderColor: "#0B0A09" }}
+                style={{ background: "var(--n-glass-card)", borderColor: "var(--n-bg)" }}
               >
-                <span style={{ fontFamily: "'Inter', sans-serif", color: "#8A8780", fontSize: "0.6rem" }}>+</span>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-body)", fontSize: "0.6rem" }}>+</span>
               </motion.div>
             </div>
 
             <div>
-              <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "1.1rem", color: "#F2EFE8" }}>
-                Join{" "}
-                <span style={{ color: "#FF5C28" }}>500+ early users</span>
+              <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "1.1rem", color: "var(--n-heading)" }}>
+                Join <span style={{ color: "#FF5C28" }}>500+ early users</span>
               </p>
-              <p style={{ fontFamily: "'Inter', sans-serif", color: "#55534F", fontSize: "0.82rem", marginTop: 4 }}>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-muted)", fontSize: "0.82rem", marginTop: 4 }}>
                 Food explorers already on the waitlist
               </p>
             </div>
           </motion.div>
         </div>
 
-        {/* Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {TESTIMONIALS.map((t, i) => (
             <motion.div
@@ -104,28 +81,15 @@ export function SocialProofSection() {
               transition={{ duration: 0.55, delay: 0.1 + i * 0.12 }}
               whileHover={{ y: -4 }}
               className="rounded-2xl p-5"
-              style={{
-                background: "rgba(255,255,255,0.025)",
-                border: "1px solid rgba(255,255,255,0.06)",
-                transition: "box-shadow 0.2s",
-              }}
+              style={{ background: "var(--n-glass)", border: "1px solid var(--n-border)", transition: "box-shadow 0.2s" }}
             >
-              {/* Stars */}
               <div className="flex gap-1 mb-3">
                 {Array.from({ length: 5 }).map((_, j) => (
                   <Star key={j} size={12} fill="#FFA726" stroke="#FFA726" />
                 ))}
               </div>
 
-              <p
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  color: "#8A8780",
-                  fontSize: "0.88rem",
-                  lineHeight: 1.7,
-                  fontStyle: "italic",
-                }}
-              >
+              <p style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-body)", fontSize: "0.88rem", lineHeight: 1.7, fontStyle: "italic" }}>
                 "{t.quote}"
               </p>
 
@@ -139,10 +103,10 @@ export function SocialProofSection() {
                   </span>
                 </div>
                 <div>
-                  <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, color: "#F2EFE8", fontSize: "0.82rem" }}>
+                  <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, color: "var(--n-heading)", fontSize: "0.82rem" }}>
                     {t.name}
                   </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", color: "#55534F", fontSize: "0.7rem" }}>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-muted)", fontSize: "0.7rem" }}>
                     {t.handle}
                   </p>
                 </div>
@@ -151,14 +115,13 @@ export function SocialProofSection() {
           ))}
         </div>
 
-        {/* Cities */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55, delay: 0.5 }}
           className="mt-14 text-center"
         >
-          <p style={{ fontFamily: "'Inter', sans-serif", color: "#55534F", fontSize: "0.78rem", marginBottom: 12 }}>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-muted)", fontSize: "0.78rem", marginBottom: 12 }}>
             Launching in
           </p>
           <div className="flex flex-wrap justify-center gap-3">
@@ -167,11 +130,8 @@ export function SocialProofSection() {
                 key={city}
                 className="rounded-full px-4 py-1.5"
                 style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.8rem",
-                  color: "#8A8780",
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem",
+                  color: "var(--n-body)", background: "var(--n-glass-light)", border: "1px solid var(--n-border)",
                 }}
               >
                 {city}

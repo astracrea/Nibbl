@@ -11,10 +11,10 @@ export function FinalCTA() {
 
   return (
     <section
+      id="final-cta"
       className="relative py-32 md:py-44 px-6 overflow-hidden"
-      style={{ background: "#0E0D0B", borderTop: "1px solid rgba(255,255,255,0.04)" }}
+      style={{ background: "var(--n-bg-alt)", borderTop: "1px solid var(--n-border-light)", transition: "background 0.4s ease" }}
     >
-      {/* Background image with heavy overlay */}
       <div className="absolute inset-0">
         <ImageWithFallback
           src={IMG_CITY}
@@ -24,18 +24,14 @@ export function FinalCTA() {
         />
         <div
           className="absolute inset-0"
-          style={{ background: "radial-gradient(ellipse at center, rgba(14,13,11,0.6) 0%, rgba(14,13,11,0.95) 70%)" }}
+          style={{ background: "radial-gradient(ellipse at center, var(--n-cta-overlay-start) 0%, var(--n-cta-overlay-end) 70%)" }}
         />
       </div>
 
-      {/* Orange glow */}
       <div
         className="absolute"
         style={{
-          width: 600,
-          height: 600,
-          top: "50%",
-          left: "50%",
+          width: 600, height: 600, top: "50%", left: "50%",
           transform: "translate(-50%, -50%)",
           background: "radial-gradient(circle, rgba(255,92,40,0.06) 0%, transparent 70%)",
           pointerEvents: "none",
@@ -49,12 +45,8 @@ export function FinalCTA() {
           transition={{ duration: 0.5 }}
           className="inline-block mb-6"
           style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: "0.78rem",
-            fontWeight: 500,
-            color: "#FF5C28",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
+            fontFamily: "'DM Sans', sans-serif", fontSize: "0.78rem", fontWeight: 500,
+            color: "#FF5C28", letterSpacing: "0.08em", textTransform: "uppercase",
           }}
         >
           Be the first to explore
@@ -65,18 +57,14 @@ export function FinalCTA() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.12 }}
           style={{
-            fontFamily: "'Syne', sans-serif",
-            fontWeight: 800,
+            fontFamily: "'Syne', sans-serif", fontWeight: 800,
             fontSize: "clamp(2.4rem, 6vw, 4.5rem)",
-            color: "#F2EFE8",
-            lineHeight: 1.05,
-            letterSpacing: "-0.03em",
+            color: "var(--n-heading)", lineHeight: 1.05, letterSpacing: "-0.03em",
           }}
         >
           Never wonder where
           <br />
-          to eat{" "}
-          <span style={{ color: "#FF5C28" }}>again.</span>
+          to eat <span style={{ color: "#FF5C28" }}>again.</span>
         </motion.h2>
 
         <motion.p
@@ -84,12 +72,7 @@ export function FinalCTA() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.26 }}
           className="mt-5 mb-10"
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            color: "#8A8780",
-            fontSize: "1.05rem",
-            lineHeight: 1.7,
-          }}
+          style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--n-body)", fontSize: "1.05rem", lineHeight: 1.7 }}
         >
           Be the first to discover your city through food.
           <br />
@@ -104,7 +87,6 @@ export function FinalCTA() {
           <WaitlistForm variant="cta" />
         </motion.div>
 
-        {/* Decorative food emojis */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
