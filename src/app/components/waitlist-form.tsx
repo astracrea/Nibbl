@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, CheckCircle, Loader2, AlertCircle } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -24,11 +25,27 @@ export function WaitlistForm({ variant = "hero", onSuccess }: WaitlistFormProps)
       setStatus("error");
       return;
     }
+    
     setStatus("loading");
-    await new Promise((r) => setTimeout(r, 1600));
-    setStatus("success");
-    setEmail("");
-    onSuccess?.();
+
+    try {
+      // Send the email via EmailJS
+      await emailjs.send(
+        'nibbl.app',   // Replace with your real Service ID
+        'Nibbl Mail',  // Replace with your real Template ID
+        {
+          user_email: email, 
+        },
+        'zJgcqJhWacxhQtk-4'    // Replace with your real Public Key
+      );
+
+      setStatus("success");
+      setEmail("");
+      onSuccess?.();
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setStatus("error");
+    }
   };
 
   if (status === "success") {
